@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>经典JS手写题 | zhou&#39;s Blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/images/logo.jpg">
+    <link rel="manifest" href="/images/logo.jpg">
+    <link rel="apple-touch-icon" href="/images/logo.jpg">
+    <meta name="description" content="Lucky zhouzhou">
+    <meta http-quiv="pragma" cotent="no-cache">
+    <meta http-quiv="pragma" cotent="no-cache,must-revalidate">
+    <meta http-quiv="expires" cotent="0">
+    
+    <link rel="preload" href="/assets/css/0.styles.35bcedcf.css" as="style"><link rel="preload" href="/assets/js/app.cad4ae70.js" as="script"><link rel="preload" href="/assets/js/2.d7c7e455.js" as="script"><link rel="preload" href="/assets/js/11.01db9b21.js" as="script"><link rel="prefetch" href="/assets/js/10.0a719433.js"><link rel="prefetch" href="/assets/js/12.6063850e.js"><link rel="prefetch" href="/assets/js/3.4ed35dd1.js"><link rel="prefetch" href="/assets/js/4.05f254cc.js"><link rel="prefetch" href="/assets/js/5.aa528bc2.js"><link rel="prefetch" href="/assets/js/6.73a8f323.js"><link rel="prefetch" href="/assets/js/7.3b71e98e.js"><link rel="prefetch" href="/assets/js/8.964b73b7.js"><link rel="prefetch" href="/assets/js/9.3ac3c399.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.35bcedcf.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">zhou's Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/es6/" class="nav-link">
+  ES6
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/wechat/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></div><div class="nav-item"><a href="/es6/" class="nav-link">
+  ES6
+</a></div><div class="nav-item"><a href="/css/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/wechat/" class="nav-link">
+  小程序
+</a></div><div class="nav-item"><a href="/about/" class="nav-link">
+  关于我
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>每日一题</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javascript/daily.html" aria-current="page" class="active sidebar-link">经典JS手写题</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/javascript/daily.html#_1-手写call" class="sidebar-link">1.手写call</a></li><li class="sidebar-sub-header"><a href="/javascript/daily.html#_2-手写apply" class="sidebar-link">2.手写apply</a></li><li class="sidebar-sub-header"><a href="/javascript/daily.html#_3-手写bind" class="sidebar-link">3.手写bind</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><div class="custom-block tip"><p class="custom-block-title">提示</p> <p>深拷贝、防抖节流、继承、原型···一听就瑟瑟发抖？汇总以下手写题目帮你扩展并巩固自己的JS基础，顺便搞定常考手写题。在工作时运用到项目中，可以提高项目开发效率。一起学习鸭～</p></div> <h2 id="_1-手写call"><a href="#_1-手写call" class="header-anchor">#</a> 1.手写call</h2> <p>◦ 第一个参数为null或者undefined时，this指向全局对象window，值为原始值的指向该原始值的自动包装对象，如 String、Number、Boolean <br>
+◦ 为了避免函数名与上下文(context)的属性发生冲突，使用Symbol类型作为唯一值 <br>
+◦ 将函数作为传入的上下文(context)属性执行 <br>
+◦ 函数执行完成后删除该属性 <br>
+◦ 返回执行结果</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+	<span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">myCall</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span><span class="token operator">...</span>args</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> cxt <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token comment">//将当前被调用的方法定义在cxt.func上.(为了能以对象调用形式绑定this)</span>
+    <span class="token comment">//新建一个唯一的Symbol变量避免重复</span>
+    <span class="token keyword">let</span> func <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    args <span class="token operator">=</span> args <span class="token operator">?</span> args <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment">//以对象调用形式调用func,此时this指向cxt 也就是传入的需要绑定的this指向</span>
+    <span class="token keyword">const</span> res <span class="token operator">=</span> args<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">:</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//删除该方法，不然会对传入对象造成污染（添加该方法）</span>
+    <span class="token keyword">delete</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="_2-手写apply"><a href="#_2-手写apply" class="header-anchor">#</a> 2.手写apply</h2> <p>◦ 前部分与call一样 <br>
+◦ 第二个参数可以不传，但类型必须为数组或者类数组 <br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">myApply</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span>args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> cxt <span class="token operator">=</span> context <span class="token operator">||</span> window<span class="token punctuation">;</span>
+    <span class="token comment">//将当前被调用的方法定义在cxt.func上.(为了能以对象调用形式绑定this)</span>
+    <span class="token comment">//新建一个唯一的Symbol变量避免重复</span>
+    <span class="token keyword">let</span> func <span class="token operator">=</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token comment">//以对象调用形式调用func,此时this指向cxt 也就是传入的需要绑定的this指向</span>
+    <span class="token keyword">const</span> res <span class="token operator">=</span> args<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">?</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token operator">:</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">delete</span> cxt<span class="token punctuation">[</span>func<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><h2 id="_3-手写bind"><a href="#_3-手写bind" class="header-anchor">#</a> 3.手写bind</h2> <p>需要考虑：<br>
+◦ bind() 除了 this 外，还可传入多个参数；<br>
+◦ bind 创建的新函数可能传入多个参数；<br>
+◦ 新函数可能被当做构造函数调用；<br>
+◦ 函数可能有返回值；<br>
+实现方法：<br>
+◦ bind 方法不会立即执行，需要返回一个待执行的函数；（闭包）<br>
+◦ 实现作用域绑定（apply）；<br>
+◦ 参数传递（apply 的数组传参）；<br>
+◦ 当作为构造函数的时候，进行原型继承；<br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">myBind</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span> <span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">//新建一个变量赋值为this，表示当前函数</span>
+    <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token comment">//判断有没有传参进来，若为空则赋值[]</span>
+    args <span class="token operator">=</span> args <span class="token operator">?</span> args <span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token comment">//返回一个newFn函数，在里面调用fn</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">newFn</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>newFnArgs</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">newFn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">fn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">,</span> <span class="token operator">...</span>newFnArgs<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">...</span>args<span class="token punctuation">,</span><span class="token operator">...</span>newFnArgs<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div><p>测试：<br></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'粥粥'</span><span class="token punctuation">,</span>age <span class="token operator">=</span><span class="token number">18</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span><span class="token string">'皮卡丘'</span><span class="token punctuation">,</span>
+    age<span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">,</span>
+    <span class="token function-variable function">myFun</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">from<span class="token punctuation">,</span>to</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">+</span> <span class="token string">' 年龄 '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">+</span><span class="token string">'来自 '</span><span class="token operator">+</span>from<span class="token operator">+</span><span class="token string">'去往'</span><span class="token operator">+</span> to<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> db <span class="token operator">=</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'蓝胖纸'</span><span class="token punctuation">,</span>
+    age<span class="token operator">:</span> <span class="token number">9</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//结果</span>
+obj<span class="token punctuation">.</span>myFun<span class="token punctuation">.</span><span class="token function">myCall</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token string">'北京'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 蓝胖纸 年龄 9  来自 北京去往上海</span>
+obj<span class="token punctuation">.</span>myFun<span class="token punctuation">.</span><span class="token function">myApply</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'北京'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 蓝胖纸 年龄 9  来自 北京去往上海</span>
+obj<span class="token punctuation">.</span>myFun<span class="token punctuation">.</span><span class="token function">myBind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token string">'北京'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 蓝胖纸 年龄 9  来自 北京去往上海</span>
+obj<span class="token punctuation">.</span>myFun<span class="token punctuation">.</span><span class="token function">myBind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'北京'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 蓝胖纸 年龄 9  来自 北京, 上海去往 undefined</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/javascript/forword.html">
+        JavaScript进阶1
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.cad4ae70.js" defer></script><script src="/assets/js/2.d7c7e455.js" defer></script><script src="/assets/js/11.01db9b21.js" defer></script>
+  </body>
+</html>
